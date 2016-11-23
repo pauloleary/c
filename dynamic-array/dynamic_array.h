@@ -23,7 +23,11 @@ int get_capacity(dynamic_array * d_array);
 
 bool is_empty(dynamic_array * d_array);
 
+void insert(dynamic_array * d_array, int index, int item);
+
 void push_back(dynamic_array * d_array, int item);
+
+int get(dynamic_array * d_array, int index);
 
 #endif 
 
