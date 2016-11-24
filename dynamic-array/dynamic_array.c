@@ -1,7 +1,9 @@
 #include "dynamic_array.h"
 
 
-
+/** 
+ * Create an array and allocalte the memory 
+ */
 dynamic_array * create_array(int capacity) {
 	dynamic_array * d_array = malloc(sizeof(dynamic_array));
         d_array->length = 0;
@@ -10,13 +12,17 @@ dynamic_array * create_array(int capacity) {
 	return d_array;
 }
 
+/** 
+ * Pretty print the array
+ */
 void pretty_print(dynamic_array * d_array) {
+	
+	// Print some of the meta data
 	printf("\t************************\n");
 	printf("\t  Length: %d\n", d_array->length);
 	printf("\tCapacity: %d\n", d_array->capacity);
 	printf("\tIs Emtpy: %d\n", is_empty(d_array));
-	// printf("\t   Items: %d\n", d_array->array);
-	
+
 	// Iterate items and create a string
 	for (int i = 0; i < d_array->length; i++) {
 		printf("\t          [%d]: %d\n", i, *(d_array->array + i));
@@ -24,22 +30,38 @@ void pretty_print(dynamic_array * d_array) {
 	
 }
 
+/** 
+ * Get the length of the array  
+ */
 int get_length(dynamic_array * d_array) {
 	return d_array->length;
 }
 
+/** 
+ * Get the capacity of the array
+ */
 int get_capacity(dynamic_array * d_array) {
 	return d_array->capacity;
 }
 
+/** 
+ * Determine if the array is empty  
+ */
 bool is_empty(dynamic_array * d_array) {
 	return (d_array->length == 0) ? 0 : 1;	
 }
+
+/** 
+ * Determine if the array is at capacity
+ */
 
 bool is_at_capacity(dynamic_array * d_array) {
 	return (d_array->length == d_array->capacity);
 }
 
+/** 
+ * Resize the array - O(n)
+ */
 void resize(dynamic_array * d_array, int new_capacity) {
 	int *new_array = malloc(new_capacity * sizeof(int));	
 	for (int i = 0; i < d_array->capacity; i++) {
@@ -50,6 +72,11 @@ void resize(dynamic_array * d_array, int new_capacity) {
 	d_array->capacity = new_capacity;
 }
 
+/** 
+ * Add an item to the end of the array 
+ * Worse case - O(n)
+ * Best case - 0(1)
+ */
 void push_back(dynamic_array * d_array, int item) {
 	
 	// Check if there's room at the inn...
@@ -62,6 +89,9 @@ void push_back(dynamic_array * d_array, int item) {
 	d_array->length++;
 }
 
+/** 
+ * Get the item at an index from the array - O(1)
+ */
 int get(dynamic_array * d_array, int index) {
 	if (index < 0 || index >= d_array->length) {
 		return -1;
@@ -69,6 +99,9 @@ int get(dynamic_array * d_array, int index) {
 	return *(d_array->array + index);
 }
 
+/** 
+ * Insert an item at a given index - O(n)
+ */
 void insert(dynamic_array * d_array, int index, int item) {
 
 	// Check if there's room at the inn...

@@ -43,7 +43,7 @@ int main (void)
 
 	// Print the details
 	pretty_print(d_array);
-
+	
   	return 0;
 }
 
