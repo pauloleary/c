@@ -38,6 +38,7 @@ int main (void)
 	// Print the details
 	pretty_print(d_array);	
 
+	// Run some gets 
 	printf("get(d_array, 0): %d\n", get(d_array, 0));	
 	printf("get(d_array, 1): %d\n", get(d_array, 1));	
 	printf("get(d_array, 2): %d\n", get(d_array, 2));	
@@ -70,7 +71,8 @@ int main (void)
 
 	// Print the details
 	pretty_print(d_array);
-
+	
+	// Remove all
 	remove_all(d_array, 8);
 	printf("remove_all(d_array, 8)\n");
 
@@ -78,7 +80,7 @@ int main (void)
 	pretty_print(d_array);
 
 
-	// Insert a number	
+	// Insert a number a few times	
 	insert(d_array, 0, 10);
 	printf("insert(d_array, 0, 10)\n");
 	insert(d_array, 0, 10);
@@ -90,19 +92,22 @@ int main (void)
 
 	// Print the details
 	pretty_print(d_array);
-
+	
+	// Remove all instances of a number
 	remove_all(d_array, 10);
 	printf("remove_all(d_array, 8)\n");
 
 	// Print the details
 	pretty_print(d_array);
-
+	
+	// Insert a number
 	insert(d_array, 4, 73);
 	printf("insert(d_array, 4, 73)\n");
 
 	// Print the details
 	pretty_print(d_array);
-
+	
+	// Find a number
 	printf("find(d_array, 73): %d\n", find(d_array, 73));	
 
 	// Retrieve and remove the last items
@@ -117,8 +122,6 @@ int main (void)
 
 	// Print the details
 	pretty_print(d_array);
-
-
 
   	return 0;
 }

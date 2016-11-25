@@ -116,6 +116,10 @@ void insert(dynamic_array * d_array, int index, int item) {
 		resize(d_array, d_array->capacity * 2);
 	}
 
+	if (index < 0 || index >= d_array->length + 1) {
+		exit(EXIT_FAILURE);
+	}
+
 	// Shift the items in front forward an index
 	for (int i = d_array->length - 1; i >= index; i--) {
 		*(d_array->array + i + 1) = *(d_array->array + i);
