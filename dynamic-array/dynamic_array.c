@@ -18,7 +18,7 @@ dynamic_array * create_array(int capacity) {
 void pretty_print(dynamic_array * d_array) {
 	
 	// Print some of the meta data
-	printf("\t************************\n");
+	printf("**************************************\n");
 	printf("\t  Length: %d\n", d_array->length);
 	printf("\tCapacity: %d\n", d_array->capacity);
 	printf("\tIs Emtpy: %d\n", is_empty(d_array));
@@ -28,6 +28,7 @@ void pretty_print(dynamic_array * d_array) {
 		printf("\t          [%d]: %d\n", i, *(d_array->array + i));
 	}
 	
+	printf("**************************************\n");
 }
 
 /** 
@@ -54,9 +55,15 @@ bool is_empty(dynamic_array * d_array) {
 /** 
  * Determine if the array is at capacity
  */
-
 bool is_at_capacity(dynamic_array * d_array) {
 	return (d_array->length == d_array->capacity);
+}
+
+/** 
+ * Determine if the array is at capacity
+ */
+bool is_oversize(dynamic_array * d_array) {
+	return (d_array->length <= d_array->capacity / 4);
 }
 
 /** 
@@ -94,7 +101,7 @@ void push_back(dynamic_array * d_array, int item) {
  */
 int get(dynamic_array * d_array, int index) {
 	if (index < 0 || index >= d_array->length) {
-		return -1;
+		exit(EXIT_FAILURE);
 	}
 	return *(d_array->array + index);
 }
@@ -117,6 +124,88 @@ void insert(dynamic_array * d_array, int index, int item) {
 	// Put the at desired index 
 	*(d_array->array + index) = item;
 	d_array->length++;
+}
+
+/** 
+ * Add an item to the start of the array - 0(n)
+ */
+void push(dynamic_array * d_array, int item) {
+	insert(d_array, 0, item);	
+}
+
+/** 
+ * Remove and return the last item in the array - O(1)
+ */
+int pop(dynamic_array * d_array) {
+	int value = *(d_array->array + d_array->length - 1);	
+	d_array->length--;
+
+	// Check if we're too big...
+	if (is_oversize(d_array)) {
+		resize(d_array, d_array->capacity / 2);
+	}
+
+	return value;
+}
+
+/**
+ * Delete item at an index - 0(n)
+ */
+void delete(dynamic_array * d_array, int index) {
+	
+	// Shift the items in front forward an index
+	for (int i = index; i < d_array->length; i++) {
+		*(d_array->array + i) = *(d_array->array + i + 1);
+	}
+	
+	d_array->length--;
+
+	// Check if we're too big...
+	if (is_oversize(d_array)) {
+		resize(d_array, d_array->capacity / 2);
+	}
+
+}
+
+/**
+ * Remove all instances of value - O(n)
+ */
+void remove_all(dynamic_array * d_array, int value) {
+	
+	int shift_count = 0;
+	for (int i = 0; i < d_array->length; i++) {
+		int curr_value = *(d_array->array + i);
+		printf("\ti = %d : shift_count = %d : curr_value = %d\n", 
+                	i, shift_count, curr_value);
+		*(d_array->array + i - shift_count) = *(d_array->array + i);
+		if (curr_value == value) {
+			shift_count++;	
+		}
+
+	}
+	d_array->length -= shift_count;
+
+	// Check if we're too big...
+	if (is_oversize(d_array)) {
+		resize(d_array, d_array->capacity / 2);
+	}
+
+}
+
+/**
+ * Find the index of the first instance of value
+ */
+int find(dynamic_array * d_array, int value) {
+
+	for (int i = 0; i < d_array->length; i++) {
+		int curr_value = *(d_array->array + i);
+		if (curr_value == value) {
+			return i;	
+		}
+
+	}
+	return -1;	
+
 }
 
 

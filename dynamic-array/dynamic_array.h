@@ -62,5 +62,26 @@ int get(dynamic_array * d_array, int index);
  */
 void push(dynamic_array * d_array, int item);
 
+/** 
+ * Remove and return the last item in the array
+ */
+int pop(dynamic_array * d_array);
+
+/**
+ * Delete item at an index
+ */
+void delete(dynamic_array * d_array, int index);
+
+/**
+ * Remove instances of all values
+ */
+void remove_all(dynamic_array * d_array, int value);
+
+/**
+ * Find the index of the first instance of value
+ */
+int find(dynamic_array * d_array, int value);
+
+
 #endif 
 
