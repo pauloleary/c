@@ -12,7 +12,7 @@
 typedef struct list_node {
 
 	int value;
-	struct list_node * node;
+	struct list_node * next;
 
 } list_node;
 
@@ -21,11 +21,26 @@ typedef struct list_node {
  */
 typedef struct linked_list {
 
-	int legth;
+	int length;
 	list_node * head;
+	list_node * sentinel;
 
 } linked_list;
 
+/**
+ * Create and return a linked list
+ */
+linked_list * create_list();
+
+/** 
+ * Pretty print the list 
+ */
+void pretty_print(linked_list * l_list); 
+
+/**
+ * Add an item to the front of the list
+ */
+void push_front(linked_list * l_list, int value);
 
 #endif 
 
