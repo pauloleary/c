@@ -43,17 +43,20 @@ void pretty_print(linked_list * l_list);
  */
 void push_front(linked_list * l_list, int value);
 
-
 /**
  * Is the list empty
  */
 bool is_empty(linked_list * l_list);
 
-
 /**
- * Get the value at index
+ * Return the value at index
  */
 int value_at(linked_list * l_list, int index);
+
+/**
+ * Remove and return the first value in the list
+ */
+int pop(linked_list * l_list);
 
 #endif 
 

@@ -32,6 +32,10 @@ int main (void) {
 	printf("value_at(l_list, 1): %d\n", value_at(l_list, 1));
 	printf("value_at(l_list, 4): %d\n", value_at(l_list, 4));
 	printf("value_at(l_list, 6): %d\n", value_at(l_list, 6));
+	
+	printf("pop(l_list): %d\n", pop(l_list));
+
+	pretty_print(l_list);
 	return 0;
 }
 

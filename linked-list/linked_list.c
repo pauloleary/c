@@ -88,4 +88,19 @@ int value_at(linked_list * l_list, int index) {
 	return -1;
 }
 
+/**
+ * Remove and return the first value in the list
+ */
+int pop(linked_list * l_list) {
+	
+	if (l_list->length == 0) {
+		exit(EXIT_FAILURE);	
+	}	
+	
+	int value = l_list->sentinel->next->value;
+	free(l_list->sentinel->next);
+	l_list->sentinel->next = l_list->sentinel->next->next;	
+	l_list->length--;
+	return value;
+}
 
