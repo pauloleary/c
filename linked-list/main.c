@@ -33,9 +33,19 @@ int main (void) {
 	printf("value_at(l_list, 4): %d\n", value_at(l_list, 4));
 	printf("value_at(l_list, 6): %d\n", value_at(l_list, 6));
 	
-	printf("pop(l_list): %d\n", pop(l_list));
+	// printf("pop_front(l_list): %d\n", pop_front(l_list));
 
 	pretty_print(l_list);
+
+	printf("pop_back(l_list): %d\n", pop_back(l_list));
+
+	pretty_print(l_list);
+
+	printf("front(l_list): %d\n", front(l_list));
+
+	printf("back(l_list): %d\n", back(l_list));
+
+
 	return 0;
 }
 

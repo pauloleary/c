@@ -56,7 +56,28 @@ int value_at(linked_list * l_list, int index);
 /**
  * Remove and return the first value in the list
  */
-int pop(linked_list * l_list);
+int pop_front(linked_list * l_list);
+
+/**
+ * Remove and return the first value in the list
+ */
+int pop_front(linked_list * l_list);
+
+/**
+ * Remove and return the first value in the list
+ */
+int pop_back(linked_list * l_list);
+
+/**
+ * Return the first value in the list
+ */
+int front(linked_list * l_list);
+
+/**
+ * Return the last value in the list
+ */
+int back(linked_list * l_list);
+
 
 #endif 
 
