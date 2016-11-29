@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 
 /*
@@ -41,6 +42,18 @@ void pretty_print(linked_list * l_list);
  * Add an item to the front of the list
  */
 void push_front(linked_list * l_list, int value);
+
+
+/**
+ * Is the list empty
+ */
+bool is_empty(linked_list * l_list);
+
+
+/**
+ * Get the value at index
+ */
+int value_at(linked_list * l_list, int index);
 
 #endif 
 
