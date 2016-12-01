@@ -17,8 +17,8 @@ int main (void) {
 	printf("push_front(l_list, 54)\n");
 	push_front(l_list, 11);
 	printf("push_front(l_list, 11)\n");
-	push_front(l_list, 99);
-	printf("push_front(l_list, 99)\n");
+	push_front(l_list, 75);
+	printf("push_front(l_list, 75)\n");
 	push_front(l_list, 73);
 	printf("push_front(l_list, 73)\n");
 	push_front(l_list, 1);
@@ -44,6 +44,26 @@ int main (void) {
 	printf("front(l_list): %d\n", front(l_list));
 
 	printf("back(l_list): %d\n", back(l_list));
+
+	push_back(l_list, 99);
+	printf("push_front(l_list, 99)\n");
+		
+	pretty_print(l_list);
+
+	insert(l_list, 3, 74);
+	printf("insert(l_list, 3, 74)\n");
+	
+	pretty_print(l_list);
+
+	erase(l_list, 5);
+	printf("erase(l_list, 5)\n");
+	
+	pretty_print(l_list);
+
+	reverse(l_list);
+	printf("reverse(l_list)\n");
+	
+	pretty_print(l_list);
 
 
 	return 0;

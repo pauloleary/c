@@ -44,6 +44,11 @@ void pretty_print(linked_list * l_list);
 void push_front(linked_list * l_list, int value);
 
 /**
+ * Add an item to the back of the list
+ */
+void push_back(linked_list * l_list, int value);
+
+/**
  * Is the list empty
  */
 bool is_empty(linked_list * l_list);
@@ -78,6 +83,20 @@ int front(linked_list * l_list);
  */
 int back(linked_list * l_list);
 
+/**
+ * Add an item to the the list at an index
+ */
+void insert(linked_list * l_list, int index, int value);
+
+/**
+ * Erase the item at an index from the list
+ */
+void erase(linked_list * l_list, int index);
+
+/**
+ * Reverse the list
+ */
+void reverse(linked_list * l_list); 
 
 #endif 
 
